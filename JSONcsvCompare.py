@@ -13,7 +13,7 @@ df1=df1[(df1['Name'].str.match("^[a-zA-Z\s]*$"))] #removes names with special ch
 
 print(df1[(df1['Name'].str.match("^[a-z]+$"))])
 print(df1[(df1['Name'].str.match("^\b[a-zA-Z]+\b$"))])
-print(df1[(df1['Name'].str.match("^[a-zA-Z\s]*$"))])
+print(df1[~(df1['Name'].str.match("^[a-zA-Z\s]*$"))])
 
 data=[]
 for i,name1 in enumerate(df1['Name']): 
