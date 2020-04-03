@@ -11,7 +11,9 @@ df1 =df1[~(df1['Name'].str.match("^[a-z]+$"))] #removed names with all small let
 df1=df1[~(df1['Name'].str.match("^\b[a-zA-Z]+\b$"))] #removed names with only one word
 df1=df1[(df1['Name'].str.match("^[a-zA-Z\s]*$"))] #removes names with special characters
 
-
+print(df1[(df1['Name'].str.match("^[a-z]+$"))])
+print(df1[(df1['Name'].str.match("^\b[a-zA-Z]+\b$"))])
+print(df1[(df1['Name'].str.match("^[a-zA-Z\s]*$"))])
 
 data=[]
 for i,name1 in enumerate(df1['Name']): 
