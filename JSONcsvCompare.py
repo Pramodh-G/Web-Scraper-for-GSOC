@@ -7,13 +7,17 @@ filejson = input()
 df1 = pd.read_csv(filecsv,index_col=False)
 df2 = pd.read_json(filejson)
 
+print("names with only lowercase letters :")
+print(df1[(df1['Name'].str.match("^[a-z]+$"))])
+print("names with only one word :")
+print(df1[(df1['Name'].str.match("^\b[a-zA-Z]+\b$"))])
+print("names with special characters :")
+print(df1[~(df1['Name'].str.match("^[a-zA-Z\s]*$"))])
+
+
 df1 =df1[~(df1['Name'].str.match("^[a-z]+$"))] #removed names with all small letters
 df1=df1[~(df1['Name'].str.match("^\b[a-zA-Z]+\b$"))] #removed names with only one word
 df1=df1[(df1['Name'].str.match("^[a-zA-Z\s]*$"))] #removes names with special characters
-
-print(df1[(df1['Name'].str.match("^[a-z]+$"))])
-print(df1[(df1['Name'].str.match("^\b[a-zA-Z]+\b$"))])
-print(df1[~(df1['Name'].str.match("^[a-zA-Z\s]*$"))])
 
 data=[]
 for i,name1 in enumerate(df1['Name']): 
